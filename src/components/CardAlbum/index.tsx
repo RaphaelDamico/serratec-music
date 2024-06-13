@@ -1,8 +1,13 @@
 import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
+import { Albuns, AlbunsProps } from "../../screens/Albuns";
 
-export const CardAlbum = () => {
+interface CardAlbumProps {
+    item: AlbunsProps
+}
+
+export const CardAlbum = ( { item }: CardAlbumProps ) => {
     return <TouchableOpacity
         activeOpacity={0.7}
         style={styles.container}
@@ -13,18 +18,18 @@ export const CardAlbum = () => {
             <Text
                 style={styles.album}
             >
-                Título do Album
+                {item.titulo}
             </Text>
             <Text
                 style={styles.artista}
             >
-                Nome do artista
+                {item.nomeArtista}
             </Text>
         </View>
         <Text
             style={styles.duracao}
         >
-            1h 20 min
+             {item.minutos / 60 > 1 && Math.floor(item.minutos / 60) + "h "} {item.minutos%60 + "min"}
         </Text>
     </TouchableOpacity>
 }
