@@ -1,6 +1,9 @@
 import React from "react";
-import { Albuns } from "./src/screens/Albuns";
+import { Routes } from "./src/routes/routes";
+import "react-native-gesture-handler";
 
 export default function App () {
-    return <Albuns />
+    return (
+        <Routes />
+    );
 }
